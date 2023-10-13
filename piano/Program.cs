@@ -1,4 +1,6 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Data.Common;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace piano
 {
@@ -19,175 +21,36 @@ namespace piano
         
         static void Main(string[] args)
         {
+            Console.WriteLine("Нажмите на esc и выберите октаву под клавишами 1, 2, 3, 4");
             char key = '1';
             while (key != ((char)ConsoleKey.Escape))
             {
-                key = Console.ReadKey(true).KeyChar; 
+                key = Console.ReadKey(true).KeyChar;               
                 switch (key)
-                {
-                    case (char)ConsoleKey.F1:
+                {                    
+                case '1':
                         Oktava1();
                         break;
-                    case (char)ConsoleKey.F2:   
+                case '2':
                         Oktava2();
                         break;
-                    case (char)ConsoleKey.F3:
+                case '3':
                         Oktava3();
                         break;
-                    case (char)ConsoleKey.F4:
+                case '4':
                         Oktava4();
                         break;
-
                 }
+                
             }
         }
         static void Oktava3()
         {
             char key = '1';
-            if (key == (char)ConsoleKey.F3)
+            while (key != ((char)ConsoleKey.Escape))
             {
                 key = Console.ReadKey(true).KeyChar;
-                switch (key)
-                {
-                    case 'x':
-                        Console.Beep(C[3], 200);
-                        break;
-                    case 'd':
-                        Console.Beep(Db[3], 200);
-                        break;
-                    case 'c':
-                        Console.Beep(D[3], 200);
-                        break;
-                    case 'f':
-                        Console.Beep(Eb[3], 200);
-                        break;
-                    case 'v':
-                        Console.Beep(E[3], 200);
-                        break;
-                    case 'b':
-                        Console.Beep(F[3], 200);
-                        break;
-                    case 'h':
-                        Console.Beep(Gb[3], 200);
-                        break;
-                    case 'n':
-                        Console.Beep(G[3], 200);
-                        break;
-                    case 'j':
-                        Console.Beep(Ab[3], 200);
-                        break;
-                    case 'm':
-                        Console.Beep(A[3], 200);
-                        break;
-                    case 'k':
-                        Console.Beep(Bb[3], 200);
-                        break;
-                    case ',':
-                        Console.Beep(B[3], 200);
-                        break;
-                }
-            }
-        }
-        static void Oktava4()
-        {
-            char key = '1';
-            if (key == (char)ConsoleKey.F4)
-            {
-                key = Console.ReadKey(true).KeyChar;
-                switch (key)
-                {
-                    case 'x':
-                        Console.Beep(C[4], 200);
-                        break;
-                    case 'd':
-                        Console.Beep(Db[4], 200);
-                        break;
-                    case 'c':
-                        Console.Beep(D[4], 200);
-                        break;
-                    case 'f':
-                        Console.Beep(Eb[4], 200);
-                        break;
-                    case 'v':
-                        Console.Beep(E[4], 200);
-                        break;
-                    case 'b':
-                        Console.Beep(F[4], 200);
-                        break;
-                    case 'h':
-                        Console.Beep(Gb[4], 200);
-                        break;
-                    case 'n':
-                        Console.Beep(G[4], 200);
-                        break;
-                    case 'j':
-                        Console.Beep(Ab[4], 200);
-                        break;
-                    case 'm':
-                        Console.Beep(A[4], 200);
-                        break;
-                    case 'k':
-                        Console.Beep(Bb[4], 200);
-                        break;
-                    case ',':
-                        Console.Beep(B[4], 200);
-                        break;
-                }
-            }
-        }
-        static void Oktava1()
-        {
-            char key = '1';
-            if (key == (char)ConsoleKey.F1)
-            {
-                key = Console.ReadKey(true).KeyChar;
-                switch (key)
-                {
-                    case 'x':
-                        Console.Beep(C[1], 200);
-                        break;
-                    case 'd':
-                        Console.Beep(Db[1], 200);
-                        break;
-                    case 'c':
-                        Console.Beep(D[1], 200);
-                        break;
-                    case 'f':
-                        Console.Beep(Eb[1], 200);
-                        break;
-                    case 'v':
-                        Console.Beep(E[1], 200);
-                        break;
-                    case 'b':
-                        Console.Beep(F[1], 200);
-                        break;
-                    case 'h':
-                        Console.Beep(Gb[1], 200);
-                        break;
-                    case 'n':
-                        Console.Beep(G[1], 200);
-                        break;
-                    case 'j':
-                        Console.Beep(Ab[1], 200);
-                        break;
-                    case 'm':
-                        Console.Beep(A[1], 200);
-                        break;
-                    case 'k':
-                        Console.Beep(Bb[1], 200);
-                        break;
-                    case ',':
-                        Console.Beep(B[1], 200);
-                        break;
-                }
-            }
-        }
-        static void Oktava2()
-        {
-            char key = '1';
-            if (key == (char)ConsoleKey.F2)
-            {
-                key = Console.ReadKey(true).KeyChar;
+               
                 switch (key)
                 {
                     case 'x':
@@ -227,7 +90,157 @@ namespace piano
                         Console.Beep(B[2], 200);
                         break;
                 }
+
             }
+            
+        }
+        static void Oktava4()
+        {
+            char key = '1';
+            while (key != ((char)ConsoleKey.Escape))
+            {
+                key = Console.ReadKey(true).KeyChar;
+               
+                switch (key)
+                {
+                    case 'x':
+                        Console.Beep(C[3], 200);
+                        break;
+                    case 'd':
+                        Console.Beep(Db[3], 200);
+                        break;
+                    case 'c':
+                        Console.Beep(D[3], 200);
+                        break;
+                    case 'f':
+                        Console.Beep(Eb[3], 200);
+                        break;
+                    case 'v':
+                        Console.Beep(E[3], 200);
+                        break;
+                    case 'b':
+                        Console.Beep(F[3], 200);
+                        break;
+                    case 'h':
+                        Console.Beep(Gb[3], 200);
+                        break;
+                    case 'n':
+                        Console.Beep(G[3], 200);
+                        break;
+                    case 'j':
+                        Console.Beep(Ab[3], 200);
+                        break;
+                    case 'm':
+                        Console.Beep(A[3], 200);
+                        break;
+                    case 'k':
+                        Console.Beep(Bb[3], 200);
+                        break;
+                    case ',':
+                        Console.Beep(B[3], 200);
+                        break;
+                }
+
+            }
+        }
+        static void Oktava1()
+        {
+            char key = '1';
+            while (key != ((char)ConsoleKey.Escape))
+            {
+                key = Console.ReadKey(true).KeyChar;
+                
+                switch (key)
+                {
+                    case 'x':
+                        Console.Beep(C[0], 200);
+                        break;
+                    case 'd':
+                        Console.Beep(Db[0], 200);
+                        break;
+                    case 'c':
+                        Console.Beep(D[0], 200);
+                        break;
+                    case 'f':
+                        Console.Beep(Eb[0], 200);
+                        break;
+                    case 'v':
+                        Console.Beep(E[0], 200);
+                        break;
+                    case 'b':
+                        Console.Beep(F[0], 200);
+                        break;
+                    case 'h':
+                        Console.Beep(Gb[0], 200);
+                        break;
+                    case 'n':
+                        Console.Beep(G[0], 200);
+                        break;
+                    case 'j':
+                        Console.Beep(Ab[0], 200);
+                        break;
+                    case 'm':
+                        Console.Beep(A[0], 200);
+                        break;
+                    case 'k':
+                        Console.Beep(Bb[0], 200);
+                        break;
+                    case ',':
+                        Console.Beep(B[0], 200);
+                        break;
+                }
+
+            }
+        }
+        static void Oktava2()
+        {
+            char key = '1';
+            while (key != ((char)ConsoleKey.Escape))
+            {
+                key = Console.ReadKey(true).KeyChar;
+             
+                switch (key)
+
+                {
+                    case 'x':
+                        Console.Beep(C[1], 200);
+                        break;
+                    case 'd':
+                        Console.Beep(Db[1], 200);
+                        break;
+                    case 'c':
+                        Console.Beep(D[1], 200);
+                        break;
+                    case 'f':
+                        Console.Beep(Eb[1], 200);
+                        break;
+                    case 'v':
+                        Console.Beep(E[1], 200);
+                        break;
+                    case 'b':
+                        Console.Beep(F[1], 200);
+                        break;
+                    case 'h':
+                        Console.Beep(Gb[1], 200);
+                        break;
+                    case 'n':
+                        Console.Beep(G[1], 200);
+                        break;
+                    case 'j':
+                        Console.Beep(Ab[1], 200);
+                        break;
+                    case 'm':
+                        Console.Beep(A[1], 200);
+                        break;
+                    case 'k':
+                        Console.Beep(Bb[1], 200);
+                        break;
+                    case ',':
+                        Console.Beep(B[1], 200);
+                        break;
+                }
+            }
+            
         }
 
     }
